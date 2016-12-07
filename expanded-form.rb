@@ -1,13 +1,10 @@
 def expanded_form(num)
-    int = num.to_s.reverse
-    ans_array = []
-    units = 0
+    ans = []
 
-    int.each_char do |i|
-      ans_array << i + "0" * units if i != "0"
-      units += 1
+    num.to_s.reverse.each_char.with_index do |int, ind|
+        ans << int + "0" * ind if int != "0"
     end
-    ans_array.reverse.join(" + ")
+    ans.reverse.join(" + ")
 end
 
 puts expanded_form(12)
